@@ -2,6 +2,7 @@
 import pygame
 import numpy as np
 from math import sin
+from line import line
 
 # pygame setup
 pygame.init()
@@ -28,18 +29,19 @@ while running:
 
     # RENDER YOUR GAME HERE
 
-    animation+=sign
+    #animation+=sign
 
-    if(animation==40):
-        sign*=-1
-    if(animation==5):
-        sign*=-1
+    #if(animation==40):
+     #   sign*=-1
+  #  if(animation==5):
+    #    sign*=-1
 
-    for x in range(0, 600): # we get the number of columns, that is the same as our width
-        value = int(199+(sin(x/animation)*199))
-        for j in range(0, 3):
-            matrix[x][value][j] = 0
+    #for x in range(0, 600): # we get the number of columns, that is the same as our width
+    #    value = int(199+(sin(x/animation)*199))
+    #    for j in range(0, 3):
+      #      matrix[x][value][j] = 0
 
+    line(matrix, 100, 200, 100, 500)
     pygame.pixelcopy.array_to_surface(screen, matrix)
 
     matrix.fill(255)
