@@ -21,7 +21,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    line(matrix, 0, 200, 0, 202)
+    line(matrix, 200, 0, 0, 202)
     pygame.pixelcopy.array_to_surface(screen, matrix)
 
     # flip() the display to put your work on screen

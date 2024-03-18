@@ -1,4 +1,4 @@
-def line(matrix, xi, xf, yi, yf, color=0): # lembre-se que x não pode ultrapassar o tamanho da largura
+def line(matrix, xi, xf, yi, yf, color=0x000000): # lembre-se que x não pode ultrapassar o tamanho da largura
                                            # assim como y não pode ultrapassar o tamanho da altura
     xmax = len(matrix) - 1
     ymax = len(matrix[0]) - 1
@@ -31,9 +31,9 @@ def line(matrix, xi, xf, yi, yf, color=0): # lembre-se que x não pode ultrapass
         coord = (y, x) if slope else (x, y)
 
         if slope:
-            matrix[y][x] = 0x000000
+            matrix[y][x] = color
         else:
-            matrix[x][y] = 0x000000
+            matrix[x][y] = color
 
         error -= dy
         if error < 0:
