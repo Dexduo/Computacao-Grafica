@@ -1,42 +1,41 @@
-def line(matrix, xi, xf, yi, yf, color=0):
+def line(matrix, xi, xf, yi, yf, color=0): # lembre-se que x não pode ultrapassar o tamanho da largura
+                                           # assim como y não pode ultrapassar o tamanho da altura
+    xmax = len(matrix) - 1
+    ymax = len(matrix[0]) - 1
 
-    if(xf < xi):
-        aux = xf
-        xf = xi
-        xi = aux
-        aux = yf
-        yf = yi
-        yi = aux
+    if(xi < 0 or xi > xmax or yi < 0 or yi > ymax or xf < 0 or xf > xmax or yf < 0 or yf > ymax):
+        return
     
     dx = abs(xf - xi)
     dy = abs(yf - yi)
 
-    aux = 0
-    if(dy > dx):
-        aux = dx
-        dx = dy
-        dy = aux
-        aux = 1
+    slope = dy > dx
 
-    y = 0
-
-    dy2 = 2*dy
-    dy2dx2 = dy2 - 2*dx
-    s = sign(yf-yi)
-
-    p = dx - dy2
-
-    for x in range(0, dx):
-
-        if(p < 0):
-            p = p - dy2dx2
-            y = y + 1
-        else:
-            p = p - dy2
+    if(dy > dx): # if line greater 45 degrees
+        xi, yi = yi, xi
+        xf, yf = yf, xf
     
-        if aux == 0:
-            for i in range(0, 3):
-                nmatrix[xi+x][yi+s*y][i] = color
+    if(xi > xf): # the breseham algorithm only works from left to right
+        xi, xf = xf, xi
+        yi, yf = yf, yi
+
+    # now that we normalize coordinates according to breseham we will get the new dx dy
+    dx = abs(xf - xi)
+    dy = abs(yf - yi)
+
+    error = dx // 2
+    y = yi
+    ystep = 1 if yi < yf else -1
+
+    for x in range(xi, xf + 1):
+        coord = (y, x) if slope else (x, y)
+
+        if slope:
+            matrix[y][x] = 0x000000
         else:
-            for i in range(0, 3):
-                nmatrix[xi+y][yi+s*x][i] = color
+            matrix[x][y] = 0x000000
+
+        error -= dy
+        if error < 0:
+            y += ystep
+            error += dx
