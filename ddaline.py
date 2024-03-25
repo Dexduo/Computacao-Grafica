@@ -6,12 +6,12 @@ def ddaline(matrix, xi, yi, xf, yf, color=0x000000):
         return
     
     dx = xf - xi
-    dy = yf - yi;
+    dy = yf - yi
 
     if abs(dx) > abs(dy):
-        steps = abs(dx);
+        steps = abs(dx)
     else:
-        steps = abs(dy);
+        steps = abs(dy)
 
     xsteps = dx/steps
     ysteps = dy/steps

@@ -3,6 +3,7 @@ import pygame
 import numpy as np
 from math import sin
 from line import line
+from ddaline import ddaline
 
 # pygame setup
 pygame.init()
@@ -22,6 +23,7 @@ while running:
             running = False
 
     line(matrix, 200, 0, 0, 202)
+    ddaline(matrix, 0, 100, 300, 0, 0xffffff)
     pygame.pixelcopy.array_to_surface(screen, matrix)
 
     # flip() the display to put your work on screen
