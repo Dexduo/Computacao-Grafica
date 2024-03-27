@@ -2,7 +2,7 @@
 import pygame
 import numpy as np
 from math import sin
-from line import line
+from bresehamline import bresehamline
 from ddaline import ddaline
 
 # pygame setup
