@@ -2,7 +2,7 @@
 import pygame
 import numpy as np
 from math import sin
-from bresehamline import bresehamline
+from bresenhamline import bresenhamline
 from ddaline import ddaline
 
 # pygame setup
@@ -22,7 +22,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    line(matrix, 200, 0, 0, 202)
+    bresenhamline(matrix, 200, 0, 0, 202, 0xff0000)
     ddaline(matrix, 0, 100, 300, 0, 0xffffff)
     pygame.pixelcopy.array_to_surface(screen, matrix)
 
