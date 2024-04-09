@@ -1,3 +1,5 @@
+from setpixel import setpixel
+
 def bresenhamline(matrix, xi, xf, yi, yf, color=0x000000): # lembre-se que x não pode ultrapassar o tamanho da largura
                                            # assim como y não pode ultrapassar o tamanho da altura
     xmax = len(matrix) - 1
@@ -31,9 +33,11 @@ def bresenhamline(matrix, xi, xf, yi, yf, color=0x000000): # lembre-se que x nã
         coord = (y, x) if slope else (x, y)
 
         if slope:
-            matrix[y][x] = color
+            # matrix[y][x] = color
+            setpixel(matrix, y, x, color)
         else:
-            matrix[x][y] = color
+            # matrix[x][y] = color
+            setpixel(matrix, x, y, color)
 
         error -= dy
         if error < 0:

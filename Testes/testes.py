@@ -1,9 +1,30 @@
-from math import sin
+import numpy as np
 
-"""for i in range(1, 601):
-    print("sin({}) = {}".format(i, sin(i)))"""
+class ponto:
+    def __init__(self, x, y, color=0x000000):
+        self.x = x
+        self.y = y
+        self.color = color
 
-for x in range(0, 50): # we get the number of columns, that is the same as our width
-        #value = int(199+((sin(x/10)-(1/2))*199))
-        value = int(199+(sin(x/10)*199))
-        print(value)
+poligono = np.array([])
+
+poligono = np.append(poligono, ponto(13, 16, 0x0000ff))
+poligono = np.append(poligono, ponto(80, 40, 0x00ff00))
+poligono = np.append(poligono, ponto(80, 40, 0x00f300))
+
+print(poligono)
+
+for i in poligono:
+    print(i.x)
+
+#=============================================================================
+# pontos = np.array([])
+
+#pontos.append([175, 200])
+
+# pontos = np.append(pontos, np.array([175, 200]))
+# pontos = np.append(pontos, [80, 100])
+
+# np.concatenate(pontos, np.array([175, 200]))
+
+# print(pontos)

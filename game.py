@@ -1,15 +1,15 @@
 # Example file showing a basic pygame "game loop"
 import pygame
 import numpy as np
-from math import sin
 from bresenhamline import bresenhamline
 from ddaline import ddaline
+from poligono import criapoligono
 
 # pygame setup
 pygame.init()
 
 matrix = np.ndarray(shape=(600, 480), dtype=int) # 600 columns and 400 lines
-matrix.fill(0x8AE2EC)
+matrix.fill(0x8AE2EC) #preencher a tela com uma cor
 
 screen = pygame.display.set_mode((len(matrix), len(matrix[0]))) # (largura, altura) (x, y) (colunas, linhas)
 clock = pygame.time.Clock()
@@ -22,8 +22,21 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    bresenhamline(matrix, 200, 0, 0, 202, 0xff0000)
-    ddaline(matrix, 0, 100, 300, 0, 0xffffff)
+    # Aqui iremos fazer nosso cenário etc... ------------------------------------------------------------------------------------------
+
+    # bresenhamline(matrix, 200, 0, 0, 202, 0xff0000)
+    # ddaline(matrix, 0, 100, 300, 0, 0xffffff)
+
+    quadrado = criapoligono()
+    quadrado.insereponto(30, 30)
+    quadrado.insereponto(80, 30)
+    quadrado.insereponto(80, 80)
+    quadrado.insereponto(30, 80)
+
+
+    # Fim do cenário-------------------------------------------------------------------------------------------------------------------
+
+    #copy matrix to framebuffer
     pygame.pixelcopy.array_to_surface(screen, matrix)
 
     # flip() the display to put your work on screen

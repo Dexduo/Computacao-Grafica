@@ -1,3 +1,5 @@
+from setpixel import setpixel
+
 def ddaline(matrix, xi, yi, xf, yf, color=0x000000):
     xmax = len(matrix) - 1
     ymax = len(matrix[0]) - 1
@@ -19,10 +21,12 @@ def ddaline(matrix, xi, yi, xf, yf, color=0x000000):
     x = xi
     y = yi
 
-    matrix[round(x)][round(y)] = color
+    # matrix[round(x)][round(y)] = color
+    setpixel(matrix, round(x), round(y), color)
 
     for s in range(steps):
         x = x + xsteps
         y = y + ysteps
         
-        matrix[round(x)][round(y)] = color
+        # matrix[round(x)][round(y)] = color
+        setpixel(matrix, round(x), round(y), color)
