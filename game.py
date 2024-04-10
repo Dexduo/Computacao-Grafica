@@ -15,6 +15,13 @@ screen = pygame.display.set_mode((len(matrix), len(matrix[0]))) # (largura, altu
 clock = pygame.time.Clock()
 running = True
 
+quadrado = criapoligono()
+quadrado.insereponto(30, 30)
+quadrado.insereponto(80, 30)
+quadrado.insereponto(80, 80)
+quadrado.insereponto(30, 80)
+quadrado.desenhapoligono(matrix)
+
 while running:
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
@@ -26,13 +33,6 @@ while running:
 
     # bresenhamline(matrix, 200, 0, 0, 202, 0xff0000)
     # ddaline(matrix, 0, 100, 300, 0, 0xffffff)
-
-    quadrado = criapoligono()
-    quadrado.insereponto(30, 30)
-    quadrado.insereponto(80, 30)
-    quadrado.insereponto(80, 80)
-    quadrado.insereponto(30, 80)
-
 
     # Fim do cenário-------------------------------------------------------------------------------------------------------------------
 

@@ -14,6 +14,7 @@ def ddaline(matrix, xi, yi, xf, yf, color=0x000000):
         steps = abs(dx)
     else:
         steps = abs(dy)
+    # print("Steps = ", steps)
 
     xsteps = dx/steps
     ysteps = dy/steps
