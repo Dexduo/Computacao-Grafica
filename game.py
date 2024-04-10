@@ -22,6 +22,12 @@ quadrado.insereponto(80, 80)
 quadrado.insereponto(30, 80)
 quadrado.desenhapoligono(matrix)
 
+triangulo = criapoligono()
+triangulo.insereponto(250, 300)
+triangulo.insereponto(350, 100)
+triangulo.insereponto(450, 300)
+triangulo.desenhapoligono(matrix)
+
 while running:
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
