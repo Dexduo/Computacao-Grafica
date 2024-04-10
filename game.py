@@ -26,7 +26,7 @@ triangulo = criapoligono()
 triangulo.insereponto(250, 300)
 triangulo.insereponto(350, 100)
 triangulo.insereponto(450, 300)
-triangulo.desenhapoligono(matrix)
+triangulo.desenhapoligono(matrix, 0x0000ff)
 
 while running:
     # poll for events
