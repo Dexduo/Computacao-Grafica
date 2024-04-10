@@ -14,7 +14,6 @@ def ddaline(matrix, xi, yi, xf, yf, color=0x000000):
         steps = abs(dx)
     else:
         steps = abs(dy)
-    # print("Steps = ", steps)
 
     xsteps = dx/steps
     ysteps = dy/steps
@@ -22,12 +21,10 @@ def ddaline(matrix, xi, yi, xf, yf, color=0x000000):
     x = xi
     y = yi
 
-    # matrix[round(x)][round(y)] = color
     setpixel(matrix, round(x), round(y), color)
 
     for s in range(steps):
         x = x + xsteps
         y = y + ysteps
         
-        # matrix[round(x)][round(y)] = color
         setpixel(matrix, round(x), round(y), color)
